@@ -5,23 +5,20 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 public class BrowserFactory {
     static WebDriver driver;
 
     public static WebDriver startBrowser(String browserChoice,String url){
-
-        switch (browserChoice.toLowerCase()){
-            case "chrome":
-                ChromeOptions options = new ChromeOptions();
-                options.addArguments("--headless");
-                driver= new ChromeDriver(options);
-                break;
-            case "firefox":
-            case "mozilla":
-                driver= new FirefoxDriver();
-            default:
-                driver= new EdgeDriver();
+        if (browserChoice.equalsIgnoreCase("chrome")) {
+            driver = new ChromeDriver();
+        } else if (browserChoice.equalsIgnoreCase("firefox")) {
+            driver = new FirefoxDriver();
+        } else if (browserChoice.equalsIgnoreCase("edge")) {
+            driver = new EdgeDriver();
+        } else {
+            driver = new SafariDriver();
         }
         driver.get(url);
         driver.manage().window().maximize();
