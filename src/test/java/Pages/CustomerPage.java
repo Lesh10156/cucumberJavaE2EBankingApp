@@ -61,6 +61,13 @@ public class CustomerPage {
 
     }
 
+    public void selectThirdNameOnDropDown(){
+
+        Select dropdown = new Select(customerDropDown_xpath);
+        dropdown.selectByIndex(3);
+
+    }
+
 
     public void clickLoginButton(){
         loginButton_xpath.click();

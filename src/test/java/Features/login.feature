@@ -44,6 +44,33 @@ Feature:  Customer Deposits and Withdraws amounts
       | account | depositAmount |
       | 1500    | 1500          |
 
+  Scenario Outline: Test Case 3 -  Customer must be able to deposit and withdraw an amount
+    Given the User lands on homepage
+    When the User click customer login button
+    Then the User click dropdown arrow
+    And the User selects a user "Ron Weasly"
+    Then the User click on login button
+    Then the User lands on welcome page
+    And user verify the original balance
+    Then user clicks first deposit button
+    And user deposits amount <depositAmount>
+    And the user click on second deposit button
+    And the user verifies that the Deposit was successful
+    Then user clicks on Transactions button
+    And the user verifies that the transaction appears
+    Then user clicks back button
+    And user click withdrawal button
+    Then user withdraws an amount
+    And user click withdraw button
+    And user validate that the current Balance is the original balance
+    Then the user clicks on Transactions button
+    And user verifies that the transaction appears
+    Then the user logs out
+    Examples:
+      | account | depositAmount |
+      | 1500    | 31459          |
+
+
 
 
 

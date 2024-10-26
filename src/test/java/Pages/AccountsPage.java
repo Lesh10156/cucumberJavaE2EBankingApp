@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.time.Duration;
 
@@ -38,6 +39,33 @@ public class AccountsPage {
     @FindBy(xpath = "//strong[contains(.,'Welcome Neville Longbottom !!')]")
     WebElement getWelcomeMessage_xpath;
 
+    @FindBy(xpath = "//span[@class='fontBig ng-binding'][contains(.,'Ron Weasly')]")
+    WebElement verifyWelcomeMessage_xpath;
+
+
+    @FindBy(xpath = "//button[contains(.,'Transactions')]")
+    WebElement transactionsButton_xpath;
+
+    @FindBy(xpath = "(//td[@class='ng-binding'][contains(.,'31459')])[1]")
+    WebElement depositedAmount_xpath;
+
+    @FindBy(xpath = "//button[@class='btn'][contains(.,'Back')]")
+    WebElement backButton_xpath;
+
+    @FindBy(xpath = "//button[@ng-class='btnClass3'][contains(.,'Withdrawl')]")
+    WebElement withdrawalButton_xpath;
+
+    @FindBy(xpath = "//button[@type='submit'][contains(.,'Withdraw')]")
+    WebElement withdrawSubmitButton_xpath;
+
+    @FindBy(xpath = "(//td[@class='ng-binding'][contains(.,'31459')])[2]")
+    WebElement withdrawnAmount_xpath;
+
+    @FindBy(xpath = "(//strong[contains(.,'0')])[2]")
+    WebElement originalBalance_xpath;
+
+
+
 
     public AccountsPage(WebDriver driver) {
         this.driver = driver;
@@ -68,14 +96,15 @@ public class AccountsPage {
     public void clickLogOutButton() {
         logOutButton_xpath.click();
     }
-    public void welcomeMessage(){
+
+    public void welcomeMessage() {
         new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(getWelcomeMessage_xpath));
         getWelcomeMessage_xpath.isDisplayed();
     }
 
 
     public void clickAccountDropDown() {
-        accountDropdown_xpath.click();
+        accountDropdown_xpath.getText();
     }
 
     public void userSelectSecondAccount() {
@@ -88,5 +117,73 @@ public class AccountsPage {
         dropdown2.selectByIndex(2);
     }
 
+    public void verifyWelcomeMessage() {
+        new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(verifyWelcomeMessage_xpath));
+        verifyWelcomeMessage_xpath.getText();
+    }
+
+
+    public void UserDepositsAnAmount() {
+        new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(captureAmountField_xpath));
+        captureAmountField_xpath.sendKeys("31459");
+    }
+
+    public void userClicksTransactionButton() {
+        transactionsButton_xpath.click();
+
+
+    }
+
+    public void verifyDepositedAmount() {
+        new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(depositedAmount_xpath));
+        depositedAmount_xpath.isDisplayed();
+
+    }
+
+    public void clickBackButton() {
+        backButton_xpath.click();
+
+    }
+
+    public void clickWithdrawalButton() {
+        withdrawalButton_xpath.click();
+
+    }
+
+    public void userWithdrawsAnAmount() {
+        new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(captureAmountField_xpath));
+        captureAmountField_xpath.sendKeys("31459");
+
+    }
+
+    public void clickWithdrawSubmitButton() {
+        withdrawSubmitButton_xpath.click();
+
+    }
+
+    public void compareOriginalBalanceAndCurrentBalance() {
+        new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(originalBalance_xpath));
+        originalBalance_xpath.isDisplayed();
+       /* new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(originalBalance_xpath));
+        String original = originalBalance_xpath.getText();
+
+        String replaceFrontText = original.replace("Account Number : 1007 , 	Balance : ", "");
+
+        String replaceBackText = replaceFrontText.replace(" 	Currency : Dollar", "");
+
+        double originalBalance = Double.parseDouble(replaceBackText);
+
+        Assert.assertTrue(originalBalance == 0);*/
+
+
+
+    }
+
+    public void verifyWithdrawnAmount() {
+        new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(withdrawnAmount_xpath));
+        withdrawnAmount_xpath.isDisplayed();
+
+    }
 
 }
+

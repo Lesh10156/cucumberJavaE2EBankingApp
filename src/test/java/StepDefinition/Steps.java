@@ -184,6 +184,93 @@ public class Steps extends Base {
         accountPage.clickLogOutButton();
     }
 
+    //Scenario 3
+    @Given("the User lands on homepage")
+    public void the_user_lands_on_homepage() {
+        loginpage.verifyCustomerLogin();
+    }
+    @When("the User click customer login button")
+    public void the_user_click_customer_login_button() {
+        loginpage.clickCustomerLoginButton();
+    }
+    @Then("the User click dropdown arrow")
+    public void the_user_click_dropdown_arrow() {
+        customerPage.clickCustomerDropDown();
+    }
+    @And("the User selects a user {string}")
+    public void the_user_selects_a_user(String string) {
+        customerPage.selectThirdNameOnDropDown();
+    }
+    @Then("the User click on login button")
+    public void the_user_click_on_login_button() {
+        customerPage.clickLoginButton();
+    }
+    @Then("the User lands on welcome page")
+    public void the_user_lands_on_welcome_page() {
+
+        accountPage.verifyWelcomeMessage();
+    }
+    @And("user verify the original balance")
+    public void user_verify_the_original_balance() {
+        accountPage.compareOriginalBalanceAndCurrentBalance();
+    }
+    @Then("user clicks first deposit button")
+    public void user_clicks_first_deposit_button() {
+        accountPage.clickFirstDepositButton();
+    }
+    @And("user deposits amount {int}")
+    public void user_deposits_amount(Integer int1) {
+        accountPage.UserDepositsAnAmount();
+    }
+    @And("the user click on second deposit button")
+    public void the_user_click_on_second_deposit_button() {
+        accountPage.clickSecondDepositButton();
+    }
+    @And("the user verifies that the Deposit was successful")
+    public void the_user_verifies_that_the_deposit_was_successful() {
+        accountPage.validateThatDepositWasSuccessful();
+    }
+    @Then("user clicks on Transactions button")
+    public void user_clicks_on_transactions_button() {
+        accountPage.userClicksTransactionButton();
+    }
+    @And("the user verifies that the transaction appears")
+    public void the_user_verifies_that_the_transaction_appears() {
+        accountPage.verifyDepositedAmount();
+    }
+    @Then("user clicks back button")
+    public void user_clicks_back_button() {
+        accountPage.clickBackButton();
+    }
+    @And("user click withdrawal button")
+    public void user_click_withdrawal_button() {
+        accountPage.clickWithdrawalButton();
+    }
+    @Then("user withdraws an amount")
+    public void user_withdraws_an_amount() {
+        accountPage.userWithdrawsAnAmount();
+    }
+    @And("user click withdraw button")
+    public void user_click_withdraw_button() {
+        accountPage.clickWithdrawSubmitButton();
+    }
+    @And("user validate that the current Balance is the original balance")
+    public void user_validate_that_the_current_balance_is_the_original_balance() {
+        accountPage.compareOriginalBalanceAndCurrentBalance();
+    }
+    @Then("the user clicks on Transactions button")
+    public void the_user_clicks_on_transactions_button() {
+        accountPage.userClicksTransactionButton();
+    }
+    @And("user verifies that the transaction appears")
+    public void user_verifies_that_the_transaction_appears() {
+        accountPage.verifyWithdrawnAmount();
+    }
+    @Then("the user logs out")
+    public void the_user_logs_out() {
+        accountPage.clickLogOutButton();
+    }
+
 
 }
 
