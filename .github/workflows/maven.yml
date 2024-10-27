@@ -24,7 +24,7 @@ jobs:
 
       - name: upload test report
         if: always()
-        uses: Actions/upload-artifacts@v3
+        uses: Actions/upload-artifact@v3
         with:
           name: test-report
           path: Reports/
