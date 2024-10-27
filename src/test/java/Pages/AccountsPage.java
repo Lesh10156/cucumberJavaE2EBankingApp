@@ -14,6 +14,7 @@ public class AccountsPage {
 
     WebDriver driver;
 
+    //Element locators
     @FindBy(xpath = "//strong[contains(.,'Welcome Harry Potter !!')]")
     WebElement welcomeMessage_xpath;
 
@@ -52,6 +53,9 @@ public class AccountsPage {
     @FindBy(xpath = "//button[@class='btn'][contains(.,'Back')]")
     WebElement backButton_xpath;
 
+    @FindBy(xpath = "//button[contains(.,'Back')]")
+    WebElement backButtonTransaction_xpath;
+
     @FindBy(xpath = "//button[@ng-class='btnClass3'][contains(.,'Withdrawl')]")
     WebElement withdrawalButton_xpath;
 
@@ -64,18 +68,23 @@ public class AccountsPage {
     @FindBy(xpath = "(//strong[contains(.,'0')])[2]")
     WebElement originalBalance_xpath;
 
+    @FindBy(xpath = "//button[@class='btn'][contains(.,'Back')]")
+    WebElement BackButtonOnTransaction_xpath;
 
 
-
+    //Constructor
     public AccountsPage(WebDriver driver) {
         this.driver = driver;
     }
 
+
+    //Methods for scenario 1 on account page
     public void verifyUserIsOnWelcomePage() {
         new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(welcomeMessage_xpath));
         welcomeMessage_xpath.isDisplayed();
     }
 
+    //Deposit button on top part of the page
     public void clickFirstDepositButton() {
         firstDepositButton_xpath.click();
     }
@@ -85,6 +94,7 @@ public class AccountsPage {
         captureAmountField_xpath.sendKeys("1500");
     }
 
+    //Deposit button on bottom part of the page
     public void clickSecondDepositButton() {
         secondDepositButton_xpath.click();
     }
@@ -97,11 +107,12 @@ public class AccountsPage {
         logOutButton_xpath.click();
     }
 
+
+    //Methods for scenario 2 on account page
     public void welcomeMessage() {
         new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(getWelcomeMessage_xpath));
         getWelcomeMessage_xpath.isDisplayed();
     }
-
 
     public void clickAccountDropDown() {
         accountDropdown_xpath.getText();
@@ -117,6 +128,7 @@ public class AccountsPage {
         dropdown2.selectByIndex(2);
     }
 
+    //Methods for scenario 3 on account page
     public void verifyWelcomeMessage() {
         new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(verifyWelcomeMessage_xpath));
         verifyWelcomeMessage_xpath.getText();
@@ -128,9 +140,17 @@ public class AccountsPage {
         captureAmountField_xpath.sendKeys("31459");
     }
 
-    public void userClicksTransactionButton() {
+    public void userClicksTransactionButton()  {
         transactionsButton_xpath.click();
+    }
 
+    public void userClicksBackButton() {
+        new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(backButtonTransaction_xpath));
+        backButtonTransaction_xpath.click();
+    }
+
+    public void userClickTransactionButton()  {
+        transactionsButton_xpath.click();
 
     }
 
@@ -164,24 +184,20 @@ public class AccountsPage {
     public void compareOriginalBalanceAndCurrentBalance() {
         new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(originalBalance_xpath));
         originalBalance_xpath.isDisplayed();
-       /* new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(originalBalance_xpath));
-        String original = originalBalance_xpath.getText();
 
-        String replaceFrontText = original.replace("Account Number : 1007 , 	Balance : ", "");
+    }
 
-        String replaceBackText = replaceFrontText.replace(" 	Currency : Dollar", "");
-
-        double originalBalance = Double.parseDouble(replaceBackText);
-
-        Assert.assertTrue(originalBalance == 0);*/
-
+    public void userClickBackButton() {
+        new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(backButtonTransaction_xpath));
+        backButtonTransaction_xpath.click();
 
 
     }
 
-    public void verifyWithdrawnAmount() {
-        new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(withdrawnAmount_xpath));
+    public void verifyWithdrawnAmount() throws InterruptedException {
         withdrawnAmount_xpath.isDisplayed();
+        Thread.sleep(1000);
+
 
     }
 

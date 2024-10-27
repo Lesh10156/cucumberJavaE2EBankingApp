@@ -14,7 +14,7 @@ public class LoginPage {
     @FindBy(xpath = "//button[contains(.,'Customer Login')]")
     WebElement customerLogin_xpath;
 
-    public LoginPage (WebDriver driver) {
+    public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
 

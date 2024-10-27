@@ -44,6 +44,7 @@ Feature:  Customer Deposits and Withdraws amounts
       | account | depositAmount |
       | 1500    | 1500          |
 
+  @Regression
   Scenario Outline: Test Case 3 -  Customer must be able to deposit and withdraw an amount
     Given the User lands on homepage
     When the User click customer login button
@@ -57,6 +58,8 @@ Feature:  Customer Deposits and Withdraws amounts
     And the user click on second deposit button
     And the user verifies that the Deposit was successful
     Then user clicks on Transactions button
+    And the user clicks back button
+    Then user click on Transaction button
     And the user verifies that the transaction appears
     Then user clicks back button
     And user click withdrawal button
@@ -64,6 +67,8 @@ Feature:  Customer Deposits and Withdraws amounts
     And user click withdraw button
     And user validate that the current Balance is the original balance
     Then the user clicks on Transactions button
+    And click back button
+    Then user clicks on Transaction button
     And user verifies that the transaction appears
     Then the user logs out
     Examples:

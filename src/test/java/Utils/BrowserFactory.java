@@ -10,7 +10,7 @@ import org.openqa.selenium.safari.SafariDriver;
 public class BrowserFactory {
     static WebDriver driver;
 
-    public static WebDriver startBrowser(String browserChoice,String url){
+    public static WebDriver startBrowser(String browserChoice, String url) {
         if (browserChoice.equalsIgnoreCase("chrome")) {
             driver = new ChromeDriver();
         } else if (browserChoice.equalsIgnoreCase("firefox")) {

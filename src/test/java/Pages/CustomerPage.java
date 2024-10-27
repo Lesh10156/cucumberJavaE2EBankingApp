@@ -40,28 +40,27 @@ public class CustomerPage {
     }
 
 
-
     public void clickCustomerDropDown() {
         new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(customerDropDown_xpath));
         customerDropDown_xpath.click();
     }
 
 
-    public void selectNameOnDropDown(){
+    public void selectNameOnDropDown() {
 
         Select dropdown = new Select(customerDropDown_xpath);
         dropdown.selectByIndex(2);
 
     }
 
-    public void selectLastNameOnDropDown(){
+    public void selectLastNameOnDropDown() {
 
         Select dropdown = new Select(customerDropDown_xpath);
         dropdown.selectByIndex(5);
 
     }
 
-    public void selectThirdNameOnDropDown(){
+    public void selectThirdNameOnDropDown() {
 
         Select dropdown = new Select(customerDropDown_xpath);
         dropdown.selectByIndex(3);
@@ -69,7 +68,7 @@ public class CustomerPage {
     }
 
 
-    public void clickLoginButton(){
+    public void clickLoginButton() {
         loginButton_xpath.click();
     }
 }
