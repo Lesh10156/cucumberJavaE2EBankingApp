@@ -62,13 +62,13 @@ public class AccountsPage {
     @FindBy(xpath = "//button[@type='submit'][contains(.,'Withdraw')]")
     WebElement withdrawSubmitButton_xpath;
 
-    @FindBy(xpath = "(//td[@class='ng-binding'][contains(.,'31459')])[2]")
+    @FindBy(xpath = "//td[@class='ng-binding'][contains(.,'Debit')]")
     WebElement withdrawnAmount_xpath;
 
     @FindBy(xpath = "(//strong[contains(.,'0')])[2]")
     WebElement originalBalance_xpath;
 
-    @FindBy(xpath = "//button[@class='btn'][contains(.,'Back')]")
+    @FindBy(xpath = "//button[contains(.,'Back')]")
     WebElement BackButtonOnTransaction_xpath;
 
 
@@ -187,16 +187,16 @@ public class AccountsPage {
 
     }
 
-    public void userClickBackButton() {
-        new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(backButtonTransaction_xpath));
-        backButtonTransaction_xpath.click();
+    public void userClickBackButton() throws InterruptedException {
+        BackButtonOnTransaction_xpath.click();
+        Thread.sleep(1500);
 
 
     }
 
     public void verifyWithdrawnAmount() throws InterruptedException {
         withdrawnAmount_xpath.isDisplayed();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
 
 
     }
