@@ -22,7 +22,7 @@ jobs:
       - name: Build with Maven
         run: mvn clean test
 
-      - name: upload test report
+      - name: Upload test report
         if: always()
         uses: Actions/upload-artifact@v3
         with:
