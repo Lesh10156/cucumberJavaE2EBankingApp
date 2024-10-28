@@ -56,7 +56,7 @@ public class AccountsPage {
     @FindBy(xpath = "//button[contains(.,'Back')]")
     WebElement backButtonTransaction_xpath;
 
-    @FindBy(xpath = "//button[@ng-class='btnClass3'][contains(.,'Withdrawp')]")
+    @FindBy(xpath = "//button[@ng-class='btnClass3'][contains(.,'Withdrawl')]")
     WebElement withdrawalButton_xpath;
 
     @FindBy(xpath = "//button[@type='submit'][contains(.,'Withdraw')]")
