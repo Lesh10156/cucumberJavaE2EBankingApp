@@ -253,7 +253,7 @@ public class Steps extends Base {
     }
 
     @And("the user clicks back button")
-    public void user_clicks_on_back_button() {
+    public void user_clicks_on_back_button() throws InterruptedException {
         accountPage.userClicksBackButton();
     }
 

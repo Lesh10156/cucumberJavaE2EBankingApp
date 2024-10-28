@@ -144,9 +144,10 @@ public class AccountsPage {
         transactionsButton_xpath.click();
     }
 
-    public void userClicksBackButton() {
+    public void userClicksBackButton() throws InterruptedException {
         new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(backButtonTransaction_xpath));
         backButtonTransaction_xpath.click();
+        Thread.sleep(1500);
     }
 
     public void userClickTransactionButton()  {

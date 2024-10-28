@@ -6,7 +6,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = "src/test/resources/Features",
         glue = {"StepDefinition"},
-        tags = "",
+        tags = "@Regression",
         plugin = {"pretty", "html:Reports/Banking.html", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         publish = true
 )
