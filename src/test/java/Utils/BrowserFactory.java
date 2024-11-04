@@ -17,7 +17,7 @@ public class BrowserFactory {
             driver = new ChromeDriver(options);
         } else if (browserChoice.equalsIgnoreCase("firefox")) {
             driver = new FirefoxDriver();
-        } else if (browserChoice.equalsIgnoreCase("Edge")) {
+        } else if (browserChoice.equalsIgnoreCase("edge")) {
             driver = new EdgeDriver();
         } else {
             driver = new SafariDriver();

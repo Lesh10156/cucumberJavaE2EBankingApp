@@ -44,7 +44,7 @@ Feature:  Customer Deposits and Withdraws amounts
       | account | depositAmount |
       | 1500    | 1500          |
 
-  @Regression
+  @Functional
   Scenario Outline: Test Case 3 -  Customer must be able to deposit and withdraw an amount
     Given the User lands on homepage
     When the User click customer login button
